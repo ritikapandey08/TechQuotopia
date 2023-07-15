@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery Shop</title>
+    <link rel="stylesheet" href="BakeryStyle.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Bakery Shop</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="Bakery.html">Home</a></li>
+            <li><a href="BakeryProducts.html">Products</a></li>
+            <li><a href="BakeryAbout.html">About</a></li>
+            <li><a href="BakeryContact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="product">
+            <img src="https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcQwu9l5QEVRGPd9-hQ90jhpiGAMg1ycT46XWkXivXoCYaZ2RUm0Fz_Y0ZVxsJ50o3_K"
+                alt="Bread">
+            <div class="product-info">
+                <h2 class="product-name">Freshly Baked Bread</h2>
+                <p class="product-description">Delicious bread made from the finest ingredients.</p>
+                <p class="product-price">₹50</p>
+                <button class="add-to-cart" data-price="50">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcR8C8noXy-gngMs_Kyw1_Nrqj5LaTElvn6lpwAj47fLPmdpPyagoZkpYZCLAs0riqs1"
+                alt="Cake">
+            <div class="product-info">
+                <h2 class="product-name">Homemade Cake</h2>
+                <p class="product-description">An appetizing cake for any occasion.</p>
+                <p class="product-price">₹500</p>
+                <button class="add-to-cart" data-price="500">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg"
+                alt="Cookies">
+            <div class="product-info">
+                <h2 class="product-name">Assorted Biscuits</h2>
+                <p class="product-description">A variety of mouthwatering biscuits.</p>
+                <p class="product-price">₹100</p>
+                <button class="add-to-cart" data-price="100">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cart-total" class="cart-total">
+        Total: <span id="total-price">₹0</span>
+    </div>
+
+    <footer>
+        &copy; 2023 Bakery Shop. All rights reserved.
+    </footer>
+    <script>
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+            const totalPriceElement = document.getElementById('total-price');
+
+            let totalPrice = 0;
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const price = parseInt(button.getAttribute('data-price'));
+
+                    totalPrice += price;
+
+                    totalPriceElement.textContent = '₹' + totalPrice;
+                });
+            });
+
+    </script>
+</body>
+
+</html>
